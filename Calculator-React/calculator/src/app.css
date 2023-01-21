@@ -1,0 +1,65 @@
+/* select everything 
+   see box-sizing tutorial*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(to right, rgb(203, 203, 243), rgb(17, 17, 181));
+}
+
+/* grid */
+.calculator-grid {
+    display: grid;
+    margin-top: 2rem;
+    justify-content: center;
+    grid-template-columns: repeat(4, 6rem);
+    /* height of different boxes. 
+     first row: auto can span as large as possible 
+     rest 6 rows: */
+    grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
+}
+
+/* It takes two column spaces */
+.span-two {
+    grid-column: span 2;
+}
+
+/* It spans the right amount */
+.output {
+    grid-column: 1/-1;
+    background-color: rgba(0,0,0,.5);
+    display: flex;
+    /* make two operand vertically aligned */
+    flex-direction: column;
+    align-items: flex-end;
+    /* space out two operands as much as possible */
+    justify-content: space-around;
+    padding: 0.754rem;
+    /* wrap words properly, e.g. long word get to the next line */
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(255,255,255, 0.85);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    background-color: rgba(255,255,255,0.5);
+}
+
+.calculator-grid > button:hover,
+.calculator-grid > button:focus {
+    background-color: rgba(255,255,255, 0.8);
+}

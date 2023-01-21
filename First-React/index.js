@@ -1,1 +1,1 @@
-ReactDOM.render(<p>Hello</p>, document.getElementById('root'))
+ReactDOM.render(<p>Hello</p>, document.querySelector('#root'))
